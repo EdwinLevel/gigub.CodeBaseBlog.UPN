@@ -1,0 +1,30 @@
+<!--Templates/home.html-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-striped table-info">
+	<thead class="thead-light">
+		<tr>
+			<td scope="col"><strong>Receta</strong></td>
+			<td scope="col"><strong>Autor</strong></td>
+			<td scope="col"><strong>Ingredientes</strong></td>
+			<td scope="col"><strong>Acciones</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for post in object_list %}
+			<td scope="row">{{ post.titulo }}</td>
+			<td scope="row">{{ post.nombre_autor }}</td>
+			<td scope="row">{{ post.ingredientes }}</td>
+			<td scope="row">
+				<a class="btn btn-secondary" href="{% url 'post_detail' post.pk %}">Ver</a>
+				<a class="btn btn-primary" href="{% url 'post_update' post.pk %}">Actualizar</a>
+				<a class="btn btn-danger" href="{% url 'post_delete' post.pk %}">Eliminar</a>
+			</td>
+		{% endfor %}
+		{% endif %}
+	</tbody>
+</table>
+{% endblock content %}

@@ -1,0 +1,64 @@
+<!-- templates/base.html -->
+{% load static %}
+<html>
+	<head>
+		<title>Django Blog</title>
+			<link href="https://fonts.googleapis.com/css?family=\Source+Sans+Pro:400" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/fondo.css' %}">
+			<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	</head>
+	<body background-color="#333333">
+	<div class="container">
+
+
+	{% block navbar %}
+    <div class="bs-docs-section clearfix">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                     <div class="container-fluid">
+
+                        <div class="navbar-header">
+                          <a class="navbar-brand" href="#">
+							  <img src="\Users\MATEO\Desktop\ArchivosDjango\blog\blog\static\UPN.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+							  RecetasUPN</a>
+                        </div>
+
+                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                         <ul class="nav navbar-nav">
+
+							<li class="dnav-item active">
+                              <a href="{% url 'home' %}" class="nav-link">Inicio<span class="sr-only"></span></a>
+                            </li>
+
+                            <li class="dnav-item active">
+                              <a href="{% url 'post_new' %} " class="nav-link">Nueva Receta<span class="sr-only"></span></a>
+                            </li>
+
+                         </ul>
+                        </div>
+						<form class="form-inline my-2 my-lg-0">
+      						<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+      						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    					</form>
+                    </div>
+                </nav>
+            	</div>
+            </div>
+        </div>
+    </div>
+   {% endblock %}
+
+	<header>
+
+	</header>
+		<!--div-->
+		{% block content %}
+		{% endblock content %}
+		<!--/div-->
+	</div>
+
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	</body>
+</html>

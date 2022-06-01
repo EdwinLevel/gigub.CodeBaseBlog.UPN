@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <ul class="list-group">
+            <blockquote class="blockquote text-center">
+                <li class="list-group-item list-group-item-primary"><h1 class="display-1">{{ post.titulo }}</h1></li>
+            </blockquote>
+            <li class="list-group-item list-group-item-dark"><cite title="Source Title">-- {{ post.nombre_autor }} --</cite></li>
+            <p class="h4"><li class="list-group-item list-group-item-dark">--> {{ post.ingredientes }}</li></p>
+            <h6><li class="list-group-item list-group-item-dark">--> {{ post.pasos }}</li></h6>
+        </ul>
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Regresar</a>
+
+{% endblock content %}
